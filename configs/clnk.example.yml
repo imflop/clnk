@@ -1,0 +1,6 @@
+server:
+    host: your-host-name
+    port: int(port)
+
+database:
+    url: path or url to your database

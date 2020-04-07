@@ -1,0 +1,11 @@
+# Idea
+.idea
+
+# VSCode
+.vscode
+
+# Configs
+configs/clnk.yml
+
+.DS_Store
+old_code
