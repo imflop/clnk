@@ -4,7 +4,7 @@ import (
 	"flag"
 	"log"
 
-	"github.com/imflop/clnk/internal/app/clnk"
+	"github.com/imflop/clnk/internal/app/clnkserver"
 )
 
 var configPath string
@@ -15,11 +15,11 @@ func init() {
 
 func main() {
 	flag.Parse()
-	config, err := clnk.NewConfig(configPath)
+	config, err := clnkserver.NewConfig(configPath)
 	if err != nil {
 		log.Fatalln(err)
 	}
-	if err := clnk.Run(config); err != nil {
+	if err := clnkserver.Run(config); err != nil {
 		log.Fatalln(err)
 	}
 }

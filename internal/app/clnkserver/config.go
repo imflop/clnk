@@ -1,4 +1,4 @@
-package clnk
+package clnkserver
 
 import (
 	"fmt"
@@ -7,15 +7,18 @@ import (
 	"gopkg.in/yaml.v2"
 )
 
-// Config clnk config ...
+// Config clnkserver ...
 type Config struct {
 	Server struct {
-		Host string `yaml: "host"`
-		Port string `yaml: "port"`
-	} `yaml: "server"`
+		Host string `yaml:"host"`
+		Port string `yaml:"port"`
+	} `yaml:"server"`
 	Database struct {
-		URL string `yaml: "url"`
-	} `yaml: "database"`
+		URL string `yaml:"url"`
+	} `yaml:"database"`
+	OriginURL struct {
+		Frontend string `yaml:"frontend"`
+	} `yaml:"origin_url"`
 }
 
 // NewConfig ...
@@ -28,7 +31,7 @@ func NewConfig(configPath string) (*Config, error) {
 		return nil, err
 	}
 
-	// opne config file
+	// open config file
 	file, err := os.Open(configPath)
 	if err != nil {
 		return nil, err

@@ -4,3 +4,6 @@ server:
 
 database:
     url: path or url to your database
+
+origin_url:
+    frontend: "scheme://dns[:port]"
