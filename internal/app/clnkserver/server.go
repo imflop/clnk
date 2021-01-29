@@ -67,7 +67,7 @@ func (s *server) shortenLink() http.HandlerFunc {
 			return
 		}
 		id := l.ID
-		encoded, err := converter.Encode(id)
+		encoded, _ := converter.Encode(id)
 
 		shortURL := s.checkScheme(r).URL.Scheme + "://" + r.Host + "/" + encoded
 		l, err = s.store.Link().Update(id, shortURL)
@@ -94,7 +94,6 @@ func (s *server) unshortenLink() http.HandlerFunc {
 			return
 		}
 		http.Redirect(w, r, l.OriginalURL, http.StatusMovedPermanently)
-		return
 	}
 }
 

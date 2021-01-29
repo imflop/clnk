@@ -28,4 +28,4 @@ configs/clnk.yml
 old_code
 clnkserver
 node_modules
-/dist
+dist

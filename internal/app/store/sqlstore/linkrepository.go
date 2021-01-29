@@ -1,9 +1,10 @@
 package sqlstore
 
 import (
+	"time"
+
 	"github.com/imflop/clnk/internal/app/models"
 	uuid "github.com/satori/go.uuid"
-	"time"
 )
 
 // LinkRepository ...
@@ -25,9 +26,8 @@ func (r *LinkRepository) Create(originalURL string) (*models.Link, error) {
 	).Scan(&l.ID)
 	if err != nil {
 		return nil, err
-	} else {
-		return l, nil
 	}
+	return l, nil
 }
 
 // Find ...
@@ -53,7 +53,6 @@ func (r *LinkRepository) Update(id int, shortURL string) (*models.Link, error) {
 	).Scan(&l.ShortURL)
 	if err != nil {
 		return nil, err
-	} else {
-		return l, nil
 	}
+	return l, nil
 }

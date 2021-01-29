@@ -6,6 +6,7 @@ import (
 	"regexp"
 )
 
+// Constants
 const (
 	Base            = 62
 	DigitOffset     = 48
@@ -53,9 +54,8 @@ func Decode(str string) (int, error) {
 		d, err := char2ord(string(letter))
 		if err != nil {
 			return -1, err
-		} else {
-			pk = pk + d*int(math.Pow(Base, float64(i)))
 		}
+		pk = pk + d*int(math.Pow(Base, float64(i)))
 	}
 	return pk, nil
 }
@@ -73,9 +73,8 @@ func Encode(digits int) (string, error) {
 		s, err := ord2char(remainder)
 		if err != nil {
 			return "", err
-		} else {
-			str = s + str
 		}
+		str = s + str
 		if digits == 0 {
 			break
 		}
